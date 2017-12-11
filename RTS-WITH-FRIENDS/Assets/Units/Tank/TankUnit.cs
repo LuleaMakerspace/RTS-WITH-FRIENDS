@@ -5,6 +5,6 @@ using UnityEngine;
 public class TankUnit : Unit {
 	public TankUnit()
   {
-    base.Id = "Bananers";
+    base.Id = "Tank";
   }
 }

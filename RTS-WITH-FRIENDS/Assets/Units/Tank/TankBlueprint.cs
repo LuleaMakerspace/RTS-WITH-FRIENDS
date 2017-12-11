@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
+[System.Serializable]
 public class TankBlueprint : IBlueprint
 {
   public int RequiredEnergy
@@ -22,7 +24,7 @@ public class TankBlueprint : IBlueprint
   {
     get
     {
-      return new TankUnit();
+      return GameController.GC.unitLibrary.Units.First(u => u.Id == "Tank");
     }
   }
 }

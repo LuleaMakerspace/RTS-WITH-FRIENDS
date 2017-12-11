@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameController : MonoBehaviour {
 
 	// This is where magic happens
@@ -11,17 +10,25 @@ public class GameController : MonoBehaviour {
 	// > Proably
 	// > Cool
 
-	public Factory testFactory;
+	public Factory TestFactory;
+	public UnitLibrary UnitLibrary;
+
+	public static GameController GC;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		if (GC == null) {
+			GC = this;
+		}
+		else {
+			Destroy(this);
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Q)) {
-			testFactory.PushUnit(new TankBlueprint());
+			TestFactory.PushUnit(new TankBlueprint());
 		}
 	}
 }

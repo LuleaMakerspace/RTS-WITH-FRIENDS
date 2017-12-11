@@ -23,14 +23,14 @@ public class Factory : MonoBehaviour {
 		if (CurrentProduction != null) {
 			CurrentProduction.BuildTime -= Time.fixedDeltaTime;
 			if (CurrentProduction.BuildTime < 0) {
-				print("It's less than zero! " + CurrentProduction.Unit.Id);
+				SpawnUnit(CurrentProduction.Unit);
 				CurrentProduction = null;
 			}
 		}
 	}
 
-	void SpawnUnit(IBlueprint blueprint) {
-
+	void SpawnUnit(Unit unit) {
+		Instantiate(unit);
 	}
 
 	public void PushUnit(IBlueprint blueprint) {
