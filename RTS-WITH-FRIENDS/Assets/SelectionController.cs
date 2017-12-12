@@ -6,13 +6,16 @@ public class SelectionController : MonoBehaviour {
 	private List<ISelectable> selectedObjects = new List<ISelectable>();
 	private Vector2 startDrag;
 	private Vector2 endDrag;
+
+	public float MinimumDragDistance;
+
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
 			startDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		}
 		if (Input.GetMouseButtonUp(0)) {
 			endDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			if (Vector2.Distance(startDrag, endDrag) < 0.3) {
+			if (Vector2.Distance(startDrag, endDrag) < MinimumDragDistance) {
 				RaycastHit2D hit = Physics2D.Raycast(endDrag, -Vector2.up);
 				if (hit.collider != null) {	
 					if (hit.transform.GetComponent<ISelectable>() != null) {
