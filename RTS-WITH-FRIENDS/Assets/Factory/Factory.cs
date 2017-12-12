@@ -30,7 +30,7 @@ public class Factory : MonoBehaviour {
 	}
 
 	void SpawnUnit(Unit unit) {
-		Instantiate(unit);
+		Instantiate(unit, transform.position + new Vector3(1,0,0), Quaternion.identity);
 	}
 
 	public void PushUnit(IBlueprint blueprint) {
