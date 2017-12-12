@@ -6,7 +6,6 @@ public class SelectionController : MonoBehaviour {
 	private List<ISelectable> selectedObjects = new List<ISelectable>();
 	private Vector2 startDrag;
 	private Vector2 endDrag;
-
 	public float MinimumDragDistance;
 
 	void Update() {

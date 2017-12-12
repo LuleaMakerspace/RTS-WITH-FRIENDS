@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a32546e2ed365349bbc14120843d465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinimumDragDistance: 0.2
 --- !u!114 &114428878339720262
 MonoBehaviour:
   m_ObjectHideFlags: 1
