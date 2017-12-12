@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 	public string Id;
+  public float Speed;
 }
