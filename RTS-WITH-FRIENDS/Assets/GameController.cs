@@ -40,10 +40,7 @@ public class GameController : MonoBehaviour {
 		}
 		if (Input.GetMouseButtonUp(0)) {
 			endDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			// Check if click
-			print(Vector2.Distance(startDrag, endDrag));
 			if (Vector2.Distance(startDrag, endDrag) < 0.3) {
-				print("Click occured");
 				RaycastHit2D hit = Physics2D.Raycast(endDrag, -Vector2.up);
 				if (hit.collider != null) {	
 					if (hit.transform.GetComponent<ISelectable>() != null) {
@@ -55,14 +52,16 @@ public class GameController : MonoBehaviour {
 				}
 			}
 			else {
-				print("Drag occured...");
-				// This is a drag
+
 			}
+		}
+		if (Input.GetMouseButtonDown(1)) {
+			this.selectedObjects.ForEach(selectedObject => selectedObject.OnDirectionsRecived(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
 		}
 	}
 	private void RemoveSelection() {
-		this.selectedObjects = new List<ISelectable>();
 		this.selectedObjects.ForEach(selectedObject => selectedObject.OnUnSelect());
+		this.selectedObjects = new List<ISelectable>();
 	}
 	private void SelectObjects(List<ISelectable> objects) {
 		this.selectedObjects = objects;

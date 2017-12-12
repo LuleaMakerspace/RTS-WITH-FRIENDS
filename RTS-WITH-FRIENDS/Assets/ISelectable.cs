@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ISelectable {
 	void OnSelect();
-	void OnDirectionsRecived();
+	void OnDirectionsRecived(Vector2 position);
 	void OnUnSelect();
 }

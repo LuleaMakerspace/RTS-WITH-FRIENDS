@@ -23,16 +23,17 @@ public class Unit : MonoBehaviour, ISelectable {
 
   public void OnSelect()
   {
-    throw new System.NotImplementedException();
+    print(UnitType + " selected");
   }
 
-  public void OnDirectionsRecived()
+  public void OnDirectionsRecived(Vector2 position)
   {
-    throw new System.NotImplementedException();
+    this.Target = position;
+    print(UnitType + " got " + position + " as target");
   }
 
   public void OnUnSelect()
   {
-    throw new System.NotImplementedException();
+    print(UnitType + " unselected");
   }
 }
