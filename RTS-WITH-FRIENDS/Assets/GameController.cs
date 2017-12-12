@@ -45,8 +45,13 @@ public class GameController : MonoBehaviour {
 			if (Vector2.Distance(startDrag, endDrag) < 0.3) {
 				print("Click occured");
 				RaycastHit2D hit = Physics2D.Raycast(endDrag, -Vector2.up);
-				if (hit.collider != null && hit.transform.GetComponent<ISelectable>() != null) {
-					SelectObjects(new List<ISelectable>() {hit.transform.GetComponent<ISelectable>()});
+				if (hit.collider != null) {	
+					if (hit.transform.GetComponent<ISelectable>() != null) {
+						SelectObjects(new List<ISelectable>() {hit.transform.GetComponent<ISelectable>()});
+					}
+				}
+				else {
+					RemoveSelection();
 				}
 			}
 			else {
@@ -55,8 +60,12 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
+	private void RemoveSelection() {
+		this.selectedObjects = new List<ISelectable>();
+		this.selectedObjects.ForEach(selectedObject => selectedObject.OnUnSelect());
+	}
 	private void SelectObjects(List<ISelectable> objects) {
 		this.selectedObjects = objects;
-		print("Selected objects");
+		this.selectedObjects.ForEach(selectedObject => selectedObject.OnSelect());
 	}
 }
