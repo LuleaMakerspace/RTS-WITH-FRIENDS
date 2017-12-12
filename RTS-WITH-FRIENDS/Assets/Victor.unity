@@ -177,6 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestFactory: {fileID: 1894051564}
+  UnitLibrary:
+    Entries:
+    - {fileID: 114549217746716002, guid: 9654fbb94c4b99546ab742c46201517c, type: 2}
+    - {fileID: 114549217746716002, guid: 9654fbb94c4b99546ab742c46201517c, type: 2}
 --- !u!1 &1077552624
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +270,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4730702836787118, guid: 6597b3af6d74de34893127507a7597f6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4730702836787118, guid: 6597b3af6d74de34893127507a7597f6, type: 2}
       propertyPath: m_LocalPosition.y

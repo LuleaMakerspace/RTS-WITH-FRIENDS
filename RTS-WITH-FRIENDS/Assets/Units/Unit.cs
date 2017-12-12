@@ -3,7 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour {
-	public string Id {
-    get; set;
-  }
+	public string Id;
 }

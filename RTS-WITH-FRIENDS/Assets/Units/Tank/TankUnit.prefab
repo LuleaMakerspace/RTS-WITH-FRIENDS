@@ -51,3 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13595c22626ba05488bc5a5a309f7ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: Tank
