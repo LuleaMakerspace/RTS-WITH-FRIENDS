@@ -12,12 +12,12 @@ public class GameController : MonoBehaviour {
 
 	public Factory TestFactory;
 	public UnitLibrary UnitLibrary;
-	public static GameController GC;
+	public static GameController Instance;
 
 	// Use this for initialization
 	void Awake () {
-		if (GC == null) {
-			GC = this;
+		if (Instance == null) {
+			Instance = this;
 		}
 		else {
 			Destroy(this);
