@@ -3,5 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum UnitType {
-	Tank
+	Tank,
+	Infantry,
+	Aircraft
 }
