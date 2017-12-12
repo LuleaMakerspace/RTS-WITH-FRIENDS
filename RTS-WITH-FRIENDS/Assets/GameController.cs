@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour {
 
 	public Factory TestFactory;
 	public UnitLibrary UnitLibrary;
-
 	public static GameController GC;
 
 	// Use this for initialization
