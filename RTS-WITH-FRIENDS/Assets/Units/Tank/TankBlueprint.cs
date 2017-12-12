@@ -24,7 +24,7 @@ public class TankBlueprint : IBlueprint
   {
     get
     {
-      return GameController.Instance.UnitLibrary.Entries.First(u => u.Id == "Tank");
+      return GameController.Instance.UnitLibrary.Entries.First(u => u.UnitType == UnitType.Tank);
     }
   }
 }
