@@ -35,5 +35,6 @@ public class Factory : MonoBehaviour {
 
 	public void PushUnit(IBlueprint blueprint) {
 		UnitQueue.Enqueue(blueprint);
+		print(blueprint.Unit.UnitType + " pushed to factory");
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
+public class Unit : MonoBehaviour, ISelectable {
   public float Speed;
   public UnitType UnitType;
   public Vector2 Target {
@@ -21,4 +21,18 @@ public class Unit : MonoBehaviour {
     print(UnitType + " spawned");
   }
 
+  public void OnSelect()
+  {
+    throw new System.NotImplementedException();
+  }
+
+  public void OnDirectionsRecived()
+  {
+    throw new System.NotImplementedException();
+  }
+
+  public void OnUnSelect()
+  {
+    throw new System.NotImplementedException();
+  }
 }
