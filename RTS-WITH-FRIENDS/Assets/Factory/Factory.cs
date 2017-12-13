@@ -4,37 +4,45 @@ using UnityEngine;
 /*
 		En fabrik som kan producera trupper
  */
-public class Factory : MonoBehaviour {
-	public Queue<IBlueprint> UnitQueue {
-		get; private set;
-	}
+public class Factory : MonoBehaviour
+{
+  public Queue<IBlueprint> UnitQueue
+  {
+    get; private set;
+  }
 
-	public IBlueprint CurrentProduction {get;set;}
+  public IBlueprint CurrentProduction { get; set; }
 
-	public Factory()
-	{
-			UnitQueue = new Queue<IBlueprint>();
-	}
+  public Factory()
+  {
+    UnitQueue = new Queue<IBlueprint>();
+  }
 
-	void FixedUpdate() {
-		if (CurrentProduction == null && UnitQueue.Count > 0) {
-			CurrentProduction = UnitQueue.Dequeue();
-		}
-		if (CurrentProduction != null) {
-			CurrentProduction.BuildTime -= Time.fixedDeltaTime;
-			if (CurrentProduction.BuildTime < 0) {
-				SpawnUnit(CurrentProduction.Unit);
-				CurrentProduction = null;
-			}
-		}
-	}
+  void FixedUpdate()
+  {
+    if (CurrentProduction == null && UnitQueue.Count > 0)
+    {
+      CurrentProduction = UnitQueue.Dequeue();
+    }
+    if (CurrentProduction != null)
+    {
+      CurrentProduction.BuildTime -= Time.fixedDeltaTime;
+      if (CurrentProduction.BuildTime < 0)
+      {
+        SpawnUnit(CurrentProduction.Unit);
+        CurrentProduction = null;
+      }
+    }
+  }
 
-	void SpawnUnit(Unit unit) {
-		Instantiate(unit, transform.position + new Vector3(1,0,0), Quaternion.identity);
-	}
+  void SpawnUnit(Unit unit)
+  {
+    Instantiate(unit, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+  }
 
-	public void PushUnit(IBlueprint blueprint) {
-		UnitQueue.Enqueue(blueprint);
-		print(blueprint.Unit.UnitType + " pushed to factory");
-	}
+  public void PushUnit(IBlueprint blueprint)
+  {
+    UnitQueue.Enqueue(blueprint);
+    print(blueprint.Unit.UnitType + " pushed to factory");
+  }
 }

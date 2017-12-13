@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TankUnit : Unit {
+public class TankUnit : Unit
+{
 }

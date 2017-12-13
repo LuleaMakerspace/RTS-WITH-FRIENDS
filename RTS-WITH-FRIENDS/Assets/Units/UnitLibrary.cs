@@ -3,5 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 [System.Serializable]
-public class UnitLibrary : Library<Unit> {
+public class UnitLibrary : Library<Unit>
+{
 }

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UnitType
+public interface Target
 {
-  Tank,
-  Infantry,
-  Aircraft
+  Vector2 GetTargetPosition();
 }

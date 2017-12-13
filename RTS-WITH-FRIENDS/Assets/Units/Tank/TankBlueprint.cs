@@ -13,10 +13,10 @@ public class TankBlueprint : IBlueprint
       return 200;
     }
   }
-	public TankBlueprint()
-	{
-			BuildTime = 3;
-	}
+  public TankBlueprint()
+  {
+    BuildTime = 3;
+  }
   public int RequiredMetal { get { return 200; } }
   public float BuildTime { get; set; }
 
