@@ -5,4 +5,5 @@ using UnityEngine;
 public interface Target
 {
   Vector2 GetTargetPosition();
+  float AcceptableDistance();
 }

@@ -17,4 +17,9 @@ public class StaticPositionTarget : Target
   {
     return StaticTargetPosition;
   }
+
+  public float AcceptableDistance()
+  {
+    return 1f;
+  }
 }

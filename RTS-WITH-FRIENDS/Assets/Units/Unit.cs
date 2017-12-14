@@ -13,7 +13,17 @@ public class Unit : MonoBehaviour, ISelectable
 
   public virtual void Update()
   {
+    Move();
+  }
 
+  public virtual void Move() {
+    if(Target != null)
+    {
+      transform.position = Vector2.MoveTowards(transform.position, Target.GetTargetPosition(), Time.deltaTime * Speed);
+      if (Vector2.Distance(transform.position, Target.GetTargetPosition()) < Target.AcceptableDistance()) {
+        Target = null;
+      }
+    }
   }
 
   public virtual void Awake()
