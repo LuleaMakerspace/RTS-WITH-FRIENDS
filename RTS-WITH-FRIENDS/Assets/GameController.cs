@@ -6,12 +6,15 @@ public class GameController : MonoBehaviour
   public Factory TestFactory;
   public UnitLibrary UnitLibrary;
   public static GameController Instance;
-
+  public ResourceStack ResourceStack {
+    get; private set;
+  }
   void Awake()
   {
     if (Instance == null)
     {
       Instance = this;
+      ResourceStack = new ResourceStack();
     }
     else
     {
