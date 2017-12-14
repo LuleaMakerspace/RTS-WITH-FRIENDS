@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ResourceType {
-	Energy,
-	Metal,
-	Docks
+public enum ResourceType
+{
+  Energy,
+  Metal,
+  Docks
 }
