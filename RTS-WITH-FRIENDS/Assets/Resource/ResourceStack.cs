@@ -19,6 +19,29 @@ public class ResourceStack
   {
     Resources = resources;
   }
+	public bool UseResource(Resource resource)
+	{
+		foreach (Resource listResource in Resources) {
+			if (resource.ResourceType == listResource.ResourceType) {
+				if (listResource.Amount - resource.Amount < 0) {
+					return false;
+				}
+				else {
+					listResource.Amount -= resource.Amount;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public bool UseResources(List<Resource> resources) {
+		foreach (Resource resource in resources) {
+			if (!UseResource(resource)) {
+				return false;
+			}
+		}
+		return true;
+	}
   public void AddResource(Resource resource)
   {
     if (FindResource(resource.ResourceType) != null)
