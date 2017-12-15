@@ -37,7 +37,8 @@ public class Factory : MonoBehaviour
 
   void SpawnUnit(Unit unit)
   {
-    Instantiate(unit, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+    Unit spawnedUnit = Instantiate(unit, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+    spawnedUnit.Team = GameController.Instance.Team;
   }
 
   public void PushUnit(IBlueprint blueprint)

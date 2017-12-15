@@ -10,17 +10,21 @@ public class Unit : MonoBehaviour, ISelectable
   {
     get; set;
   }
-
+  public Team Team {
+    get; set;
+  }
   public virtual void Update()
   {
     Move();
   }
 
-  public virtual void Move() {
-    if(Target != null)
+  public virtual void Move()
+  {
+    if (Target != null)
     {
       transform.position = Vector2.MoveTowards(transform.position, Target.GetTargetPosition(), Time.deltaTime * Speed);
-      if (Vector2.Distance(transform.position, Target.GetTargetPosition()) < Target.AcceptableDistance()) {
+      if (Vector2.Distance(transform.position, Target.GetTargetPosition()) < Target.AcceptableDistance())
+      {
         Target = null;
       }
     }
@@ -36,18 +40,21 @@ public class Unit : MonoBehaviour, ISelectable
     print(UnitType + " spawned");
   }
 
-  public void OnSelect()
+  public virtual void OnSelect()
   {
     print(UnitType + " selected");
   }
 
-  public void OnRightClick(Vector2 position)
+  public virtual void OnRightClick(Vector2 position)
   {
+    if (GameController.Instance.Team != Team) {
+      return;
+    }
     this.Target = new StaticPositionTarget(position);
     print(UnitType + " got " + position + " as target");
   }
 
-  public void OnUnSelect()
+  public virtual void OnUnSelect()
   {
     print(UnitType + " unselected");
   }

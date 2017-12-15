@@ -9,12 +9,16 @@ public class GameController : MonoBehaviour
   public ResourceStack ResourceStack {
     get; private set;
   }
+  public Team Team {
+    get; private set;
+  }
   void Awake()
   {
     if (Instance == null)
     {
       Instance = this;
       ResourceStack = new ResourceStack();
+      Team = Team.Team1;
     }
     else
     {
@@ -26,6 +30,9 @@ public class GameController : MonoBehaviour
   {
     if (Input.GetKeyDown(KeyCode.Q))
     {
+      TestFactory.PushUnit(new TankBlueprint());
+    }
+    else if (Input.GetKeyDown(KeyCode.E)) {
       TestFactory.PushUnit(new TankBlueprint());
     }
   }
