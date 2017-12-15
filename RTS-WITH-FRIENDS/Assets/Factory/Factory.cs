@@ -4,7 +4,7 @@ using UnityEngine;
 /*
 		En fabrik som kan producera trupper
  */
-public class Factory : MonoBehaviour
+public class Factory : TeamObject
 {
   public Queue<IBlueprint> UnitQueue
   {
@@ -37,8 +37,7 @@ public class Factory : MonoBehaviour
 
   void SpawnUnit(Unit unit)
   {
-    Unit spawnedUnit = Instantiate(unit, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
-    spawnedUnit.Team = GameController.Instance.Team;
+    TeamObject.SpawnTeamObject(unit, transform.position, Quaternion.identity, GameController.Instance.Team);
   }
 
   public void PushUnit(IBlueprint blueprint)

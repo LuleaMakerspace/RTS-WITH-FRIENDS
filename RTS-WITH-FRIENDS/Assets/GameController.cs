@@ -25,7 +25,6 @@ public class GameController : MonoBehaviour
       Destroy(this);
     }
   }
-
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.Q))

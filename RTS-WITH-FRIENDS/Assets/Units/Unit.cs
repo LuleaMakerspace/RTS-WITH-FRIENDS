@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, ISelectable
+public class Unit : TeamObject, ISelectable
 {
   public float Speed;
   public UnitType UnitType;
   public Target Target
   {
-    get; set;
-  }
-  public Team Team {
     get; set;
   }
   public virtual void Update()
@@ -47,7 +44,7 @@ public class Unit : MonoBehaviour, ISelectable
 
   public virtual void OnRightClick(Vector2 position)
   {
-    if (GameController.Instance.Team != Team) {
+    if (!IsOwnTeam()) {
       return;
     }
     this.Target = new StaticPositionTarget(position);
