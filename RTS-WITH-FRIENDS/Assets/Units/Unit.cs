@@ -27,32 +27,12 @@ public class Unit : TeamObject, ISelectable
     }
   }
 
-  public virtual void Awake()
-  {
-    print(UnitType + " awoken");
-  }
-
-  public virtual void Start()
-  {
-    print(UnitType + " spawned");
-  }
-
-  public virtual void OnSelect()
-  {
-    print(UnitType + " selected");
-  }
-
-  public virtual void OnRightClick(Vector2 position)
+  public override void OnRightClick(Vector2 position)
   {
     if (!IsOwnTeam()) {
       return;
     }
     this.Target = new StaticPositionTarget(position);
     print(UnitType + " got " + position + " as target");
-  }
-
-  public virtual void OnUnSelect()
-  {
-    print(UnitType + " unselected");
   }
 }

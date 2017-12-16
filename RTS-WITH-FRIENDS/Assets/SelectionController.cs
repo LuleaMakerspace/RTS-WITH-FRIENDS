@@ -26,6 +26,10 @@ public class SelectionController : MonoBehaviour
           ISelectable selectableObject = hit.transform.GetComponent<ISelectable>();
           if (selectableObject != null)
           {
+            if(!Input.GetKey(KeyCode.LeftControl))
+            {
+              RemoveSelection();
+            }
             SelectObjects(new List<ISelectable>() { selectableObject });
           }
         }
@@ -51,7 +55,7 @@ public class SelectionController : MonoBehaviour
   }
   private void SelectObjects(List<ISelectable> objects)
   {
-    this.selectedObjects = objects;
+    this.selectedObjects.AddRange(objects);
     this.selectedObjects.ForEach(selectedObject => selectedObject.OnSelect());
   }
 }

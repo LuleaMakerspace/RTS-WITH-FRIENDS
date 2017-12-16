@@ -37,7 +37,7 @@ public class Factory : TeamObject
 
   void SpawnUnit(Unit unit)
   {
-    TeamObject.SpawnTeamObject(unit, transform.position, Quaternion.identity, GameController.Instance.Team);
+    TeamObject.SpawnTeamObject(unit, transform.position + new Vector3(1, 0, 0), Quaternion.identity, GameController.Instance.Team);
   }
 
   public void PushUnit(IBlueprint blueprint)
