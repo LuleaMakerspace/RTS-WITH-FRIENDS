@@ -7,13 +7,16 @@ using System.Linq;
 public class Pathfinding : MonoBehaviour, IDisposable {
 	 Grid grid;
 
-		void Awake()
+		void Start()
 		{
-			grid = GetComponent<Grid>();
+			grid =  GameController.Instance.GetComponent<Grid>();
 		}
 
         public void FindPathPriority(Vector2 startPos, Vector2 targetPos, int id, Action<List<Vector2>, int> callback)
         {
+            print("Försöker hitta path");
+            print(startPos);
+            print(targetPos);
             var startNode = grid.NodeFromWorldPoint(startPos);
             var targetNode = grid.NodeFromWorldPoint(targetPos);
 

@@ -65,8 +65,15 @@ public class Grid : MonoBehaviour, IDisposable {
 
         public Node NodeFromWorldPoint(Vector2 worldPosition)
         {
-            int x = Mathf.RoundToInt((gridSizeX - 1) * ((worldPosition.x) / Banan.x));
-            int y = Mathf.RoundToInt((gridSizeY - 1) * ((worldPosition.y) / Banan.y));
+            float percentX = (worldPosition.x + Banan.x/2) / Banan.x;
+		float percentY = (worldPosition.y + Banan.y/2) / Banan.y;
+		percentX = Mathf.Clamp01(percentX);
+		percentY = Mathf.Clamp01(percentY);
+
+		int x = Mathf.RoundToInt((gridSizeX-1) * percentX);
+		int y = Mathf.RoundToInt((gridSizeY-1) * percentY);
+
+  
             return grid[x, y];
         }
 
