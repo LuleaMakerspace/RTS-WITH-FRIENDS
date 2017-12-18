@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FriendlySprite: {fileID: 21300000, guid: a5f31fa85fe3fa54690011b4f7802ca2, type: 3}
   EnemySprite: {fileID: 21300002, guid: a5f31fa85fe3fa54690011b4f7802ca2, type: 3}
-  Speed: 1
+  Speed: 3
   UnitType: 0
 --- !u!212 &212289224372200326
 SpriteRenderer:
@@ -91,7 +91,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -107,7 +106,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

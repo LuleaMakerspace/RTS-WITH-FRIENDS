@@ -5,7 +5,7 @@ using System;
 
 public class Grid : MonoBehaviour, IDisposable {
 		public LayerMask UnwalkableMask; 
-		public Vector2 Banan;
+		public Vector2 GridWorldSize;
         public float nodeRadius;
         Node[,] grid;
         public int MaxSize { get; private set;}
@@ -15,8 +15,8 @@ public class Grid : MonoBehaviour, IDisposable {
 		void Awake()
         {
             nodeDiameter = nodeRadius * 2;
-            gridSizeX = Mathf.RoundToInt(Banan.x / nodeDiameter);
-            gridSizeY = Mathf.RoundToInt(Banan.y / nodeDiameter);
+            gridSizeX = Mathf.RoundToInt(GridWorldSize.x / nodeDiameter);
+            gridSizeY = Mathf.RoundToInt(GridWorldSize.y / nodeDiameter);
             MaxSize = gridSizeX * gridSizeY;
 
             CreateGrid();
@@ -26,7 +26,7 @@ public class Grid : MonoBehaviour, IDisposable {
         {
             grid = new Node[gridSizeX, gridSizeY];
 
-			Vector2 worldBottomLeft =  new Vector2(transform.position.x, transform.position.y) - Vector2.right * Banan.x / 2 + Vector2.down * Banan.y/2; 
+			Vector2 worldBottomLeft =  new Vector2(transform.position.x, transform.position.y) - Vector2.right * GridWorldSize.x / 2 + Vector2.down * GridWorldSize.y/2; 
 
             for (int x = 0; x < gridSizeX; x++)
             {
@@ -65,8 +65,8 @@ public class Grid : MonoBehaviour, IDisposable {
 
         public Node NodeFromWorldPoint(Vector2 worldPosition)
         {
-            float percentX = (worldPosition.x + Banan.x/2) / Banan.x;
-		float percentY = (worldPosition.y + Banan.y/2) / Banan.y;
+            float percentX = (worldPosition.x + GridWorldSize.x/2) / GridWorldSize.x;
+		float percentY = (worldPosition.y + GridWorldSize.y/2) / GridWorldSize.y;
 		percentX = Mathf.Clamp01(percentX);
 		percentY = Mathf.Clamp01(percentY);
 
@@ -85,17 +85,14 @@ public class Grid : MonoBehaviour, IDisposable {
 		void OnDrawGizmos()  
 		{ 
 			Gizmos.color = Color.green; 
-			Gizmos.DrawWireCube(transform.position, new Vector3(Banan.x, Banan.y, 1)); 
-			print(grid);
+			Gizmos.DrawWireCube(transform.position, new Vector3(GridWorldSize.x, GridWorldSize.y, 1)); 
 			if(grid != null)  
 			{ 
-				Debug.Log("Inne"); 
 				int i = 0; 
 				foreach(var n in grid)  
 				{ 
 					Gizmos.color = n.walkable ? Color.blue : Color.red; 
 					var v = new Vector3(n.worldPosition.x, n.worldPosition.y, 1); 
-					print(i); 
 					i = i++; 
 					Gizmos.DrawWireCube(v, Vector3.one * (nodeDiameter - .1f));   
 				} 
