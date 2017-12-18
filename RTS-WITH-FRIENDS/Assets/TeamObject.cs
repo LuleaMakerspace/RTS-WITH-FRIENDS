@@ -16,8 +16,10 @@ public class TeamObject : MonoBehaviour, ISelectable {
 	public static TeamObject SpawnTeamObject(TeamObject teamObject, Vector2 position, Quaternion rotation, Team team) {
 		TeamObject spawnedTeamObject = Instantiate(teamObject, position, rotation);
 		spawnedTeamObject.Team = team;
-		spawnedTeamObject.GetComponent<SpriteRenderer>().sprite = spawnedTeamObject.IsOwnTeam() ? spawnedTeamObject.FriendlySprite : spawnedTeamObject.EnemySprite;
 		return spawnedTeamObject;
+	}
+	public virtual void Awake() {
+		GetComponent<SpriteRenderer>().sprite = IsOwnTeam() ? FriendlySprite : EnemySprite;
 	}
 	void OnMouseEnter() {
 	}
