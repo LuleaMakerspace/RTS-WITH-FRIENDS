@@ -18,7 +18,7 @@ public abstract class TeamObject : MonoBehaviour, ISelectable {
 		spawnedTeamObject.Team = team;
 		return spawnedTeamObject;
 	}
-	public virtual void Awake() {
+	public virtual void Start() {
 		GetComponent<SpriteRenderer>().sprite = GetTeamSprite();
 	}
 	Sprite GetTeamSprite() {
