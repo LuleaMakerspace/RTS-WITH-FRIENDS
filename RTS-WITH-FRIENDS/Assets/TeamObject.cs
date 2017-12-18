@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class TeamObject : MonoBehaviour, ISelectable {
+public abstract class TeamObject : MonoBehaviour, ISelectable {
 	public Team Team {
     get; set;
   }
@@ -19,7 +19,10 @@ public class TeamObject : MonoBehaviour, ISelectable {
 		return spawnedTeamObject;
 	}
 	public virtual void Awake() {
-		GetComponent<SpriteRenderer>().sprite = IsOwnTeam() ? FriendlySprite : EnemySprite;
+		GetComponent<SpriteRenderer>().sprite = GetTeamSprite();
+	}
+	Sprite GetTeamSprite() {
+		return IsOwnTeam() ? FriendlySprite : EnemySprite;
 	}
 	void OnMouseEnter() {
 	}
